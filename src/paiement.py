@@ -20,4 +20,5 @@ def autoriser(montant: float, solde: float) -> bool:
     """Autorise la transaction si le solde couvre le montant + les frais."""
     if montant <= 0:
         return False
-    return solde >= montant  # ne tient pas compte des frais
+    frais = calcul_frais(montant, "debit")
+    return solde >= (montant + frais)  # inclut les frais
