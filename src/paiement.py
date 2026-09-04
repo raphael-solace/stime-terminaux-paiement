@@ -12,7 +12,7 @@ def calcul_frais(montant: float, type_carte: str) -> float:
     taux = 0.012 if type_carte == "credit" else 0.005
     frais = montant * taux
     frais = max(frais, 0.05)
-    # NOTE: le plafond de 2,00 € n'est pas encore appliqué (voir PR en cours)
+    frais = min(frais, 2.00)  # plafond de 2,00 € par transaction
     return round(frais, 2)
 
 
