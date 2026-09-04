@@ -21,3 +21,8 @@ def autoriser(montant: float, solde: float) -> bool:
     if montant <= 0:
         return False
     return solde >= montant  # ne tient pas compte des frais
+
+
+def sans_contact_autorise(montant: float) -> bool:
+    """Le paiement sans contact est plafonné à 50 € en magasin."""
+    return 0 < montant <= 50.0
